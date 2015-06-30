@@ -2,3 +2,6 @@
 SO/
 proposal.html
 
+*.csv
+*.txt
+*.zip
