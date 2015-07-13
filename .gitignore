@@ -5,3 +5,5 @@ proposal.html
 *.csv
 *.txt
 *.zip
+
+__pycache__/
