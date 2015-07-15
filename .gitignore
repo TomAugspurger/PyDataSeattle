@@ -7,3 +7,5 @@ proposal.html
 *.zip
 
 __pycache__/
+project/
+writing/

@@ -106,7 +106,17 @@ def earnings_change(earnings):
     return d
 
 def change_name(base_month):
-    "Name that change"
+    "Change from 1 year ago"
+    t = pd.Timestamp(base_month) + pd.DateOffset(years=1)
+    return t.strftime('%Y-%m')
+
+def write_change(change):
+    """
+    To hdf5. Naming is earnings/e2015_01
+    """
+    name = "earnings/e{}".format(change.name.str.replace('-', '_'))
+    change.to_hdf(storepath, key=name, format='table', append=False)
+    return name
 
 def make_cohorts(start='2008-01', stop='2014-06'):
     """
@@ -128,6 +138,6 @@ def make_cohorts(start='2008-01', stop='2014-06'):
         match = age & race & gender
         df = cohort.loc[match]
         change = earnings_change(df['earnings'])
-        change.name = pd.Timestamp(base_month_ + pd.DateOffset(years=1)).strftime()
+        change.name = change_name(base_month)
         write_change(change)
 
