@@ -54,9 +54,10 @@ def make_dd_fp(start, end):
     return 'dds/dd_{}_{}.txt'.format(start, end)
 
 
-def download_dds():
+def download_dds(cache=True):
     # tuples of (url, start, end) for when that dd was valid (closed both sides)
-    DDS = [('http://www.nber.org/cps-basic/cpsbjan07.ddf', '2008-01', '2008-12'),
+    DDS = [('http://thedataweb.rm.census.gov/pub/cps/basic/200508-/augnov05dd.txt', '2005-08', '2006-12'),
+           ('http://thedataweb.rm.census.gov/pub/cps/basic/200701-/jan07dd.txt', '2007-01', '2008-12'),
            ('http://www.nber.org/cps-basic/cpsbjan09.ddf', '2009-01', '2009-12'),
            ('http://www.nber.org/cps-basic/cpsbjan10.ddf', '2010-01', '2012-04'),
            ('http://www.nber.org/cps-basic/cpsbmay12.ddf', '2012-05', '2012-12'),
@@ -64,8 +65,11 @@ def download_dds():
            ('http://thedataweb.rm.census.gov/pub/cps/basic/201401-/January_2014_Record_Layout.txt', '2014-01', '2014-12'),
            ('http://www.nber.org/cps-basic/January_2015_Record_Layout.txt', '2015-01', '2015-06')]
     for url, start, end in DDS:
-        r = requests.get(url)
         fp = make_dd_fp(start, end)
+        if cache and os.path.exists(fp):
+            print('cached {}'.fomrat(fp))
+            continue
+        r = requests.get(url)
         with open(fp, 'w') as f:
             f.write(r.text)
         print(url, start, end)
