@@ -114,7 +114,7 @@ def write_change(change):
     """
     To hdf5. Naming is earnings/e2015_01
     """
-    name = "earnings/e{}".format(change.name.str.replace('-', '_'))
+    name = "earnings/e{}".format(change.name.replace('-', '_'))
     change.to_hdf(storepath, key=name, format='table', append=False)
     return name
 
@@ -129,7 +129,7 @@ def make_cohorts(start='2008-01', stop='2014-06'):
     org = (slice(None), slice(None), slice(None), [4, 8])
 
     cohorts = (read_cohort(base_month) for base_month in base_months)
-    for cohort in cohorts:
+    for cohort, base_month in zip(cohorts, base_months):
         cohort = cohort.sort_index()
         cohort = cohort.loc[org, :]
         age = match_age(cohort.age.unstack('mis'))
@@ -139,5 +139,6 @@ def make_cohorts(start='2008-01', stop='2014-06'):
         df = cohort.loc[match]
         change = earnings_change(df['earnings'])
         change.name = change_name(base_month)
+        # bring back metadata
         write_change(change)
-
+        print(base_month)
