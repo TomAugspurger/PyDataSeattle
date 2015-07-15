@@ -33,7 +33,7 @@ def make_months(start, end):
     months = pd.period_range(start=start, end=end, freq='M')
     return months
 
-def download_months(start, end):
+def download_months(start, end, cache=True):
     base_url = 'http://www.nber.org/'
 
     months = make_months(start, end)
@@ -42,7 +42,7 @@ def download_months(start, end):
     N = len(links)
     for i, link in enumerate(links):
         url = base_url + link
-        download_month(url, cache=False)
+        download_month(url, cache=cache)
         print(url, '{}/{}'.format(i, N), end='\r')
 
 # -----------------
@@ -76,7 +76,7 @@ def download_dds(cache=True):
 
 def main():
     os.makedirs('data/', exist_ok=True)
-    download_months('2008-01', '2015-04')
+    download_months('2005-08', '2015-06')
 
     print("Data Dictionaries")
     os.makedirs('dds/', exist_ok=True)
