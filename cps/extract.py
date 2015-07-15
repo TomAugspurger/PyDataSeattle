@@ -20,7 +20,7 @@ def dd_fp_to_span(fp):
     """dd_YYYY-MM_YYYY-MM.txt -> YYYY-MM_YYY-MM"""
     return os.path.basename(fp).split('dd_')[-1].split('.')[0]
 
-def dd_span_to_key(span):
+def span_to_dd_key(span):
     "2008-01_2008-12 -> /dds/2008_01_2008_12"
     return '/dds/dd{}'.format(span.replace('-', '_'))
 
@@ -43,7 +43,7 @@ def parse_dd(fp):
     return df
 
 def store_dd(dd, span):
-    dd.to_hdf('data/store.h5', dd_span_to_key(span))
+    dd.to_hdf('data/store.h5', span_to_dd_key(span))
 
 @lru_cache(1)
 def _make_dd_map():
@@ -64,7 +64,7 @@ def month_to_dd(month):
 
 def month_to_dd_key(month):
     d = _make_dd_map()
-    key = dd_span_to_key(d[month])
+    key = span_to_dd_key(d[month])
     return key
 
 # -------
@@ -78,6 +78,10 @@ def zip_fp_to_month(fp):
 
 def month_to_hdf_key(month):
     "2015-01 -> monthly/2015_01"
+    try:
+        month = month.strftime('%Y-%m')
+    except AttributeError:
+        pass
     return "/monthly/m{}".format(month.replace('-', '_'))
 
 def hdf_key_to_month(key):

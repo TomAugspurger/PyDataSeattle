@@ -151,7 +151,7 @@
     "HRHHID2": "household_id2",
     "GESTFIPS": "state",
     "GTCBSA": "metropolitan_code",
-    "GTCO": "fips_county",
+    "GTCO": "fips_county_code",
     "GTINDVPC": "city",
     "PEAGE": "age",
     "PRTFAGE": "age_topcode",
