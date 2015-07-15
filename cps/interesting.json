@@ -20,7 +20,8 @@
     "PTDTRACE": "race",
     "PEMLR": "labor_status",
     "PRERNWA": "earnings",
-    "PTWK": "earnings_topcode"
+    "PTWK": "earnings_topcode",
+    "PEHRUSL1": "hours"
   },
   "2014-01_2014-12": {
     "HRHHID": "household_id",
@@ -43,7 +44,8 @@
     "PTDTRACE": "race",
     "PEMLR": "labor_status",
     "PRERNWA": "earnings",
-    "PTWK": "earnings_topcode"
+    "PTWK": "earnings_topcode",
+    "PEHRUSL1": "hours"
    },
   "2013-01_2013-12": {
     "HRHHID": "household_id",
@@ -66,8 +68,10 @@
     "PTDTRACE": "race",
     "PEMLR": "labor_status",
     "PRERNWA": "earnings",
-    "PTWK": "earnings_topcode"
+    "PTWK": "earnings_topcode",
+    "PEHRUSL1": "hours"
    },
+
   "2012-05_2012-12": {
     "HRHHID": "household_id",
     "HRMONTH": "month",
@@ -89,7 +93,8 @@
     "PTDTRACE": "race",
     "PEMLR": "labor_status",
     "PRERNWA": "earnings",
-    "PTWK": "earnings_topcode"
+    "PTWK": "earnings_topcode",
+    "PEHRUSL1": "hours"
    },
 
   "2010-01_2012-04": {
@@ -113,7 +118,8 @@
     "PTDTRACE": "race",
     "PEMLR": "labor_status",
     "PRERNWA": "earnings",
-    "PTWK": "earnings_topcode"
+    "PTWK": "earnings_topcode",
+    "PEHRUSL1": "hours"
   },
 
   "2009-01_2009-12": {
@@ -137,7 +143,8 @@
     "PTDTRACE": "race",
     "PEMLR": "labor_status",
     "PRERNWA": "earnings",
-    "PTWK": "earnings_topcode"
+    "PTWK": "earnings_topcode",
+    "PEHRUSL1": "hours"
   },
 
   "2008-01_2008-12": {
@@ -161,6 +168,7 @@
     "PTDTRACE": "race",
     "PEMLR": "labor_status",
     "PRERNWA": "earnings",
-    "PTWK": "earnings_topcode"
+    "PTWK": "earnings_topcode",
+    "PEHRUSL1": "hours"
   }
 }
