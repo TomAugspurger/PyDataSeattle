@@ -5,7 +5,7 @@ Get the raw monthly CPS files from
 http://www.nber.org/data/cps_basic.html
 """
 import os
-
+import click
 import requests
 import pandas as pd
 
@@ -67,21 +67,25 @@ def download_dds(cache=True):
     for url, start, end in DDS:
         fp = make_dd_fp(start, end)
         if cache and os.path.exists(fp):
-            print('cached {}'.fomrat(fp))
+            print('cached {}'.format(fp))
             continue
         r = requests.get(url)
         with open(fp, 'w') as f:
             f.write(r.text)
         print(url, start, end)
 
-def main():
-    os.makedirs('data/', exist_ok=True)
-    download_months('2005-08', '2015-06')
+@click.command()
+@click.option("--job", type=click.Choice(["dd", "monthly"]))
+def cli(job):
+    if job == "dd":
+        print("Data Dictionaries")
+        os.makedirs('dds/', exist_ok=True)
+        download_dds()
 
-    print("Data Dictionaries")
-    os.makedirs('dds/', exist_ok=True)
-    download_dds()
+    elif job == "monthly":
+        os.makedirs('data/', exist_ok=True)
+        download_months('2005-08', '2015-06')
 
 if __name__ == '__main__':
-    main()
+    cli()
 
