@@ -195,6 +195,31 @@
     "PRERNWA": "earnings",
     "PTWK": "earnings_topcode",
     "PEHRUSL1": "hours"
+  },
+
+  "2005-08_2006-12": {
+    "HRHHID": "household_id",
+    "HRMONTH": "month",
+    "HRYEAR4": "year",
+    "PULINENO": "line_number",
+    "HUFINAL": "outcome",
+    "HRNUMHOU": "household_size",
+    "HRMIS": "mis",
+    "HRHHID2": "household_id2",
+    "GESTFIPS": "state",
+    "GTCBSA": "metropolitan_code",
+    "GTCO": "fips_county_code",
+    "GTINDVPC": "city",
+    "PEAGE": "age",
+    "PRTFAGE": "age_topcode",
+    "PEMARITL": "married",
+    "PESEX": "gender",
+    "PEEDUCA": "education",
+    "PTDTRACE": "race",
+    "PEMLR": "labor_status",
+    "PRERNWA": "earnings",
+    "PTWK": "earnings_topcode",
+    "PEHRUSL1": "hours"
   }
 
 }
