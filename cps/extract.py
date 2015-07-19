@@ -14,6 +14,7 @@ import click
 import pandas as pd
 
 logger = logging.getLogger(__name__)
+STOREPATH = 'data/store.h5'
 
 # TODO: assert consistent / engarde
 def dd_fp_to_span(fp):
@@ -121,54 +122,24 @@ def parse_monthly(fp, cache=True, nrows=None):
                     .assign(start=lambda df: df.start - 1)
                     .values.tolist())
         # TALK: run through with subset first (nrows=100)
+
         df = (pd.read_fwf(data_fp, colspecs=colspecs, names=names,
                           usecols=names, nrows=nrows)
-                .rename(columns=cm))
+                .rename(columns=cm)
+                .sort(['mis']))
         key = month_to_hdf_key(month)
-        df.to_hdf('data/store.h5', key, format='table', append=False)
+        with pd.HDFStore(STOREPATH) as store:
+            store.append(key, df, format='table', data_columns=True)
     except:
         os.remove(data_fp)
         raise
     os.remove(data_fp)
-
-# subsetting
-
-# def month_to_subset_key(month):
-#     '2015-01 -> /sub/s2015_01'
-#     return '/sub/s{}'.format(month.replace('-', '_'))
-
-# def subset_key_to_month(key):
-#     '''/sub/s2015_01 -> 2015-01'''
-#     return key.lstrip('/').lstrip('sub/s').replace('_', '-')
 
 def filter_working_years(df):
     """
     Only those aged 18 - 65
     """
     return df.query('18 <= age <= 65')
-
-# Interesting subset
-# def run_subset():
-#     with pd.HDFStore('data/store.h5') as store:
-#         keys = list(filter(lambda x: x.startswith('/monthly'), store.keys()))
-
-#     months = map(hdf_key_to_month, keys)
-#     dd_keys = map(month_to_dd_key, months)
-#     spans = map(dd_key_to_span, dd_keys)
-#     colmap_keys = map(lambda x: x.split('_')[0], spans)  # keys in interesting
-#     cms = (col_map[k] for k in colmap_keys)
-
-#     gen = zip(keys, cms)
-#     for key, cm in gen:
-#         df = (pd.read_hdf('data/store.h5', key, columns=list(cm.keys()))
-#                 .rename(columns=cm)
-#                 .pipe(filter_working_years))
-#         # TALK: engarde here on ids being nullish
-#         # TALK: importance of name gen functions
-#         # so eash to do key.split('/')[-1].replace(...)
-#         s_key = month_to_subset_key(hdf_key_to_month(key))
-#         df.to_hdf('data/store.h5', s_key, format='table', append=False)
-#         print(key, end='\r')
 
 def run_dd():
     dds = iter(glob.glob('dds/*.txt'))

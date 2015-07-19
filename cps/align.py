@@ -28,6 +28,8 @@ If a house is being sampled and someone moves, the house
 (new people) are surveyed.
 """
 import json
+
+import numpy as np
 import pandas as pd
 
 import extract
@@ -79,7 +81,7 @@ def match_exact(demo):
     return demo.loc[good_idx].stack().index
 
 def both_earning(earnings):
-    idx = e[(e[4] > 0) & (e[8] > 0)].stack().index
+    idx = earnings[(earnings[4] > 0) & (earnings[8] > 0)].stack().index
     return idx
 
 def replace_codes(df):
@@ -90,7 +92,7 @@ def replace_codes(df):
     """
     with open('state_fips.json') as f:
         state_map = json.load(f)
-
+        state_map
 
 def fix_fips(df):
     """
