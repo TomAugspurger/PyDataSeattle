@@ -15,7 +15,7 @@ git clone https://github.com/tomaugspurger/pydataseattle
 cd pydataseattle
 ```
 
-- [git for windows](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=0CB8QFjAAahUKEwiMzP7B9OXGAhUFGpIKHUChDXQ&url=https%3A%2F%2Fmsysgit.github.io%2F&ei=heuqVcz1BYW0yATAwragBw&usg=AFQjCNFnCv2hclFeCLGTHD4BkSGT_-nhAw&sig2=VSsn-H2a73FvmvFBsZS1dQ&bvm=bv.98197061,d.aWw)
+- [git for windows](https://msysgit.github.io)
 - `brew install git` on mac with [homebrew](http://brew.sh)
 
 If that fails, try the [zip](https://github.com/TomAugspurger/PyDataSeattle/archive/master.zip).
