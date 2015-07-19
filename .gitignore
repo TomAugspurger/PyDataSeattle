@@ -5,6 +5,8 @@ proposal.html
 *.csv
 *.txt
 *.zip
+*.png
+sea/
 
 __pycache__/
 writing/
