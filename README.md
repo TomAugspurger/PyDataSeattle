@@ -37,7 +37,7 @@ With pip / virtualenv:
 
 ```bash
 $ [sudo] pip install virtualenv  # try without sudo first
-$ virtualenv sea  # /usr/local/bin/virtualenv
+$ virtualenv --python=`which python3` sea
 $ source sea/bin/activate
 $ pip install -U pip
 $ pip install -r requirements.txt
