@@ -44,6 +44,23 @@ $ source sea/bin/activate
 $ pip install -U pip
 $ pip install -r requirements.txt
 ```
+Verify your installation with
+
+```bash
+python check_environment.py
+```
+
+
+Chat
+====
+
+I have no idea if this is useful, but we have a
+[chat room](https://gitter.im/TomAugspurger/PyDataSeattle) for the tutorial.
+If you have them, you can log in with your GitHub credentials.
+
+Speak up in there with installation problems / questions / random gifs
+if you find that more convenient.
+
 
 Contents
 ========
