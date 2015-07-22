@@ -13,10 +13,8 @@ from functools import lru_cache
 import click
 import pandas as pd
 
-logger = logging.getLogger(__name__)
 STOREPATH = 'data/store.h5'
 
-# TODO: assert consistent / engarde
 def dd_fp_to_span(fp):
     """dd_YYYY-MM_YYYY-MM.txt -> YYYY-MM_YYY-MM"""
     return os.path.basename(fp).split('dd_')[-1].split('.')[0]
@@ -92,7 +90,6 @@ def hdf_key_to_month(key):
 # extracting
 
 def extract(fp):
-    logger.info("Unzipping %s", fp)
     z = zipfile.ZipFile(fp)
     assert len(z.namelist()) == 1
     name = z.namelist()[0]
