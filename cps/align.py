@@ -29,6 +29,7 @@ If a house is being sampled and someone moves, the house
 """
 import json
 
+import click
 import numpy as np
 import pandas as pd
 
@@ -84,6 +85,17 @@ def both_earning(earnings):
     idx = earnings[(earnings[4] > 0) & (earnings[8] > 0)].stack().index
     return idx
 
+def match_first_month(industry):
+    """
+    industry field form interesting.json for MIS 4:8 in columns
+    Also works for occupation
+    """
+    industry = industry.replace(-1, np.nan)
+    industry = industry.ffill(axis=1)
+    is_good = industry.eq(industry.iloc[:, 0], axis='index').all(1)
+    good_idx = industry.loc[is_good.index].stack().index
+    return good_idx
+
 def replace_codes(df):
     """
     - city
@@ -128,19 +140,41 @@ def make_cohorts(start='2008-01', stop='2014-06'):
     stop = pd.Timestamp(stop)
     # TALK: ms vs m
     base_months = pd.date_range(start, stop, freq='MS')
-    org = (slice(None), slice(None), slice(None), [4, 8])
+    # TODO: pd.IndexSlice
+    earnings_slice = (slice(None), slice(None), slice(None), [4, 8])
+    end_slice = (slice(None), slice(None), slice(None), [4, 5, 6, 7, 8])
 
     cohorts = (read_cohort(base_month) for base_month in base_months)
-    for cohort, base_month in zip(cohorts, base_months):
+    gen = zip(cohorts, base_months)
+    for cohort, base_month in gen:
         cohort = cohort.sort_index()
-        cohort = cohort.loc[org, :]
-        age = match_age(cohort.age.unstack('mis'))
-        race = match_exact(cohort.race.unstack('mis'))
-        gender = match_exact(cohort.gender.unstack('mis'))
-        match = age & race & gender
+        cohort_earnings = cohort.loc[earnings_slice, :]
+        age = match_age(cohort_earnings.age.unstack('mis'))
+        race = match_exact(cohort_earnings.race.unstack('mis'))
+        gender = match_exact(cohort_earnings.gender.unstack('mis'))
+
+        # TODO: mathc_exact
+        industry = match_first_month(
+            cohort.loc[end_slice, 'industry'].unstack('mis'))
+        occupation = match_first_month(
+            cohort.loc[end_slice, 'occupation'].unstack('mis'))
+
+        match = age & race & gender & industry & occupation
         df = cohort.loc[match]
         change = earnings_change(df['earnings'])
         change.name = change_name(base_month)
         # bring back metadata
         write_change(change)
         print(base_month)
+
+
+@click.command()
+@click.option('--start', '-s', default='2008-01')
+@click.option('--stop', '-e', default='2014-06')
+def cli(start, stop):
+    make_cohorts(start, stop)
+
+
+if __name__ == '__main__':
+    cli()
+
