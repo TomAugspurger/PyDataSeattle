@@ -29,6 +29,10 @@ def dd_key_to_span(key):
     return '-'.join(parts[:2]) + '_' + '-'.join(parts[2:])
 
 def parse_dd(fp):
+    """
+    filepath to DataFrame with columns
+        field, width, description, start, end
+    """
     expr = re.compile(r'[\x0c]{0,1}(\w+)\*?[\s\t]*(\d{1,2})[\s\t]*(.*?)'
                       r'[\s\t]*\(*(\d+)\s*[\-–]\s*(\d+)\)*\s*$')
     with open(fp) as f:
