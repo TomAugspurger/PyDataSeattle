@@ -21,8 +21,12 @@
     "PEMLR": "labor_status",
     "PRERNWA": "earnings",
     "PTWK": "earnings_topcode",
-    "PEHRUSL1": "hours"
-  },
+    "PEHRUSL1": "hours",
+    "PRDTIND1": "industry",
+    "PRDTOCC1": "occupation",
+    "PUIODP1": "same_job",
+    "PUIODP2": "same_duties"
+   },
   "2014-01_2014-12": {
     "HRHHID": "household_id",
     "HRMONTH": "month",
@@ -45,8 +49,13 @@
     "PEMLR": "labor_status",
     "PRERNWA": "earnings",
     "PTWK": "earnings_topcode",
-    "PEHRUSL1": "hours"
-   },
+    "PEHRUSL1": "hours",
+    "PRDTIND1": "industry",
+    "PRDTOCC1": "occupation",
+    "PUIODP1": "same_job",
+    "PUIODP2": "same_duties"
+    },
+
   "2013-01_2013-12": {
     "HRHHID": "household_id",
     "HRMONTH": "month",
@@ -69,8 +78,12 @@
     "PEMLR": "labor_status",
     "PRERNWA": "earnings",
     "PTWK": "earnings_topcode",
-    "PEHRUSL1": "hours"
-   },
+    "PEHRUSL1": "hours",
+    "PRDTIND1": "industry",
+    "PRDTOCC1": "occupation",
+    "PUIODP1": "same_job",
+    "PUIODP2": "same_duties"
+    },
 
   "2012-05_2012-12": {
     "HRHHID": "household_id",
@@ -94,8 +107,12 @@
     "PEMLR": "labor_status",
     "PRERNWA": "earnings",
     "PTWK": "earnings_topcode",
-    "PEHRUSL1": "hours"
-   },
+    "PEHRUSL1": "hours",
+    "PRDTIND1": "industry",
+    "PRDTOCC1": "occupation",
+    "PUIODP1": "same_job",
+    "PUIODP2": "same_duties"
+    },
 
   "2010-01_2012-04": {
     "HRHHID": "household_id",
@@ -119,8 +136,12 @@
     "PEMLR": "labor_status",
     "PRERNWA": "earnings",
     "PTWK": "earnings_topcode",
-    "PEHRUSL1": "hours"
-  },
+    "PEHRUSL1": "hours",
+    "PRDTIND1": "industry",
+    "PRDTOCC1": "occupation",
+    "PUIODP1": "same_job",
+    "PUIODP2": "same_duties"
+   },
 
   "2009-01_2009-12": {
     "HRHHID": "household_id",
@@ -144,7 +165,11 @@
     "PEMLR": "labor_status",
     "PRERNWA": "earnings",
     "PTWK": "earnings_topcode",
-    "PEHRUSL1": "hours"
+    "PEHRUSL1": "hours",
+    "PRDTIND1": "industry",
+    "PRDTOCC1": "occupation",
+    "PUIODP1": "same_job",
+    "PUIODP2": "same_duties"
   },
 
   "2007-01_2008-12": {
@@ -169,7 +194,11 @@
     "PEMLR": "labor_status",
     "PRERNWA": "earnings",
     "PTWK": "earnings_topcode",
-    "PEHRUSL1": "hours"
+    "PEHRUSL1": "hours",
+    "PRDTIND1": "industry",
+    "PRDTOCC1": "occupation",
+    "PUIODP1": "same_job",
+    "PUIODP2": "same_duties"
   },
 
   "2005-08_2006-12": {
@@ -194,7 +223,11 @@
     "PEMLR": "labor_status",
     "PRERNWA": "earnings",
     "PTWK": "earnings_topcode",
-    "PEHRUSL1": "hours"
+    "PEHRUSL1": "hours",
+    "PRDTIND1": "industry",
+    "PRDTOCC1": "occupation",
+    "PUIODP1": "same_job",
+    "PUIODP2": "same_duties"
   }
 
 }
