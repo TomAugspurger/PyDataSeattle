@@ -71,8 +71,8 @@ def match_age(age):
     age should be a DataFrame indexed by
     ('hhid', 'hhid2', 'lineno') with columns 'mis' for months (4, 8)
     """
-    delta = age.diff(axis='columns')[8]  # ignore NaNs from 1st
-    is_good = ((delta >= 0) & (delta <= 3))
+    delta = age[8] - age[4]
+    is_good = ((delta >= 0) & (delta <= 3) & (age[8] != -1))
     good_idx = age.index[is_good]
     return age.loc[good_idx].stack().index
 
@@ -84,11 +84,12 @@ def match_exact(demo):
     age should be a DataFrame indexed by
     ('hhid', 'hhid2', 'lineno') with columns 'mis' for months (4, 8)
     """
-    is_good = demo.diff(axis=1)[8].eq(0)
+    delta = demo[8] - demo[4]
+    is_good = (delta == 0) & (demo[8] != -1)
     good_idx = demo.index[is_good]
     return demo.loc[good_idx].stack().index
 
-def both_earning(earnings):
+def both_earnings(earnings):
     """
     Return index ('hhid', 'hhid2', 'lineno', 'mis')
     where earnings is not -1. in both months 4, and 8.
@@ -158,7 +159,8 @@ def filter_matches(cohort):
     occupation = match_first_month(
         cohort.loc[end_slice, 'occupation'].unstack('mis'))
 
-    match = age & race & gender & industry & occupation
+    earnings = both_earnings(cohort_earnings.earnings.unstack('mis'))
+    match = age & race & gender & industry & occupation & earnings
     return match
 
 def make_cohorts(start='2008-01', stop='2014-06'):
