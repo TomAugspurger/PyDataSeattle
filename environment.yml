@@ -19,7 +19,6 @@ dependencies:
     - pandas=0.16.2
     - partd=0.3.2
     - patsy=0.3.0
-    - ptyprocess=0.5
     - Pygments=2.0.2
     - pymongo
     - pyparsing=2.0.3
