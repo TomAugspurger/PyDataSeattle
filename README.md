@@ -33,6 +33,7 @@ conda env create -f environment.yml
 source activate sea  # or activate sea on Windows
 pip install beautifulsoup4
 pip install simplejson
+pip install vincent
 ```
 
 With pip / virtualenv:
