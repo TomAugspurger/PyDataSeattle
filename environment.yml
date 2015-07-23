@@ -13,6 +13,7 @@ dependencies:
     - ipython=3.2.0
     - itsdangerous=0.24
     - Jinja2=2.7.3
+    - jsonschema
     - matplotlib=1.4.3
     - numexpr=2.4.3
     - numpy=1.9.2
