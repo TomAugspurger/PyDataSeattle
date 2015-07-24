@@ -10,7 +10,7 @@ dependencies:
     - dill=0.2.3
     - Flask=0.10.1
     - html5lib
-    - ipython=3.2.0
+    - ipython=3.2.1
     - ipython-notebook
     - itsdangerous=0.24
     - Jinja2=2.7.3
