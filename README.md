@@ -5,6 +5,17 @@ Pandas .head() to .tail()
 
 [http://tinyurl.com/sea-phtt](http://tinyurl.com/sea-phtt)
 
+Should I Attend?
+================
+
+I'm targeting an experience level somewhere between novice and intermediate.
+Hopefully you're familiar with the IPython notebook, and have heard of pandas.
+If not, don't worry. The first two notebooks (~20 minutes) are for people who
+may be entirely new to NumPy and pandas.
+
+If you're more experienced, the first 30-40 minutes of the talk will likely be a review
+for you. After that we'll get into some more advanced topics.
+
 Setup
 =====
 
