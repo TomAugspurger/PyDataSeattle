@@ -3,7 +3,9 @@ Pandas .head() to .tail()
 
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/TomAugspurger/PyDataSeattle?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-[http://tinyurl.com/sea-phtt](http://tinyurl.com/sea-phtt)
+
+[Video Recording](https://www.youtube.com/watch?v=otCriSKVV_8)
+
 
 Should I Attend?
 ================
