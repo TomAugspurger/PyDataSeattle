@@ -79,5 +79,9 @@ if you find that more convenient.
 Contents
 ========
 
-- [Basics](notebooks/Basics.ipynb)
-- [Operations](notebooks/operations.ipynb)
+- [Basics](notebooks/1. Basics.ipynb)
+- [Operations](notebooks/2. Operations.ipynb)
+- [Indexing](notebooks/3. Indexing.ipynb)
+- [Groupby](notebooks/4. Groupby.ipynb)
+- [Tidy Data](5. Tidy Data.ipynb)
+- [For Stats & ML](6. For Stats & ML.ipynb)
