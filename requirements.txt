@@ -8,7 +8,7 @@ cytoolz==0.7.3
 dask==0.6.0
 dill==0.2.3
 docutils==0.12
-Eve==0.5.3
+Eve==0.7.5
 Events==0.2.1
 Flask==0.10.1
 Flask-PyMongo==0.3.1
