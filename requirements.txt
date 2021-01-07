@@ -19,7 +19,7 @@ itsdangerous==0.24
 Jinja2==2.7.3
 jsonschema==2.5.1
 locket==0.2.0
-lxml==3.4.4
+lxml==4.6.2
 MarkupSafe==0.23
 matplotlib==1.4.3
 mistune==0.6
