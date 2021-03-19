@@ -16,7 +16,7 @@ gnureadline==6.3.3
 html5lib==0.999999
 ipython==3.2.0
 itsdangerous==0.24
-Jinja2==2.7.3
+Jinja2==2.11.3
 jsonschema==2.5.1
 locket==0.2.0
 lxml==3.4.4
